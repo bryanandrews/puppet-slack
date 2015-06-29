@@ -37,9 +37,9 @@ Puppet::Reports.register_report(:slack) do
       message = { :channel =>  SLACK_CHANNEL,
                   :username => SLACK_BOTNAME,
                   :icon_url => SLACK_ICONURL,
-                  :attachments => [{ :fallback => "#{self.host} #{self.environment}: `#{self.status}` #{Changes} changes took #{Time.Total} seconds for #(Resources.Total) resources at #{Time.now.asctime}",
+                  :attachments => [{ :fallback => "#{self.host} #{self.environment}: `#{self.status}` #{self.Changes} changes took #{self.Time.Total} seconds for #(self.Resources.Total) resources at #{Time.now.asctime}",
                                   :color => color,
-                                  :text => "#{self.host} #{self.environment}: `#{self.status}` #{Changes} changes took #{Time.Total} seconds for #(Resources.Total) resources at #{Time.now.asctime}",
+                                  :text => "#{self.host} #{self.environment}: `#{self.status}` #{self.Changes} changes took #{self.Time.Total} seconds for #(self.Resources.Total) resources at #{Time.now.asctime}",
                                   :mrkdwn_in => ["text"] }]}
 
       conn.post do |req|
